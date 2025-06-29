@@ -1,12 +1,12 @@
-📝 Advanced Feedback Collection System
+#📝 Advanced Feedback Collection System
 
 A full-stack feedback management system with secure authentication, file uploads, admin analytics, dark mode, and CSV export. Built using React, Node.js, Express, MongoDB, and Material UI.
 
-🌐 Live Demo
+###🌐 Live Demo
 
 Frontend: https://feedback-client.vercel.appBackend: https://feedback-backend.onrender.com
 
-🚀 Features
+##🚀 Features
 
 👤 Authentication
 
@@ -28,7 +28,7 @@ File upload support (PDF/image)
 
 Client-side validation
 
-🛡️ Admin Dashboard
+##🛡️ Admin Dashboard
 
 View & delete feedback
 
@@ -42,7 +42,7 @@ File viewer for uploads
 
 CSV Export (Download all feedback)
 
-💡 UI/UX
+##💡 UI/UX
 
 Material UI design system
 
@@ -52,7 +52,7 @@ Responsive layout
 
 Notifications and error handling
 
-🛠 Tech Stack
+##🛠 Tech Stack
 
 🔹 Frontend
 
@@ -86,21 +86,15 @@ json2csv (CSV export)
 
 Feedback-Collection-System/├── client/ # React frontend├── server/ # Express backend├── README.md
 
+ ##⚙️ Installation (Local)
 
-
-
-
- ⚙️ Installation (Local)
-
-1. Clone the repo
+###1. Clone the repo
 
 git clone https://github.com/your-username/feedback-collection-system.git
 
 cd feedback-collection-system
 
-
-
-2.Setup Backend
+###2.Setup Backend
 
 cd server
 
@@ -114,7 +108,7 @@ npm run dev
 
 
 
-3. Setup Frontend
+###3. Setup Frontend
 
 cd ../client
 
