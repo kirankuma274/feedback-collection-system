@@ -6,7 +6,7 @@ A full-stack feedback management system with secure authentication, file uploads
 
 ## 🌐 Live Demo
 
- **Frontend:**  collect-feedback.netlify.app  
+ **Frontend:**  https://collect-feedback.netlify.app 
  **Backend:**   https://feedback-collection-91lg.onrender.com
 
 ## 🚀 Features
