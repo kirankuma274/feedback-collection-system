@@ -6,9 +6,8 @@ A full-stack feedback management system with secure authentication, file uploads
 
 ## 🌐 Live Demo
 
- **Frontend:** [https://feedback-client.vercel.app](https://feedback-client.vercel.app)  
-
-
+ **Frontend:**  collect-feedback.netlify.app  
+ **Backend:**   https://feedback-collection-91lg.onrender.com
 
 ## 🚀 Features
 
@@ -78,7 +77,8 @@ Feedback-Collection-System/
 
 ### 1. Clone the repo
 
-git clone https://github.com/your-username/feedback-collection-system.git
+git clone https://github.com/kirankuma274/feedback-collection-system.git
+
 cd feedback-collection-system
 
 ### 2. Setup Backend
@@ -92,7 +92,9 @@ JWT_SECRET
 PORT
 EMAIL_SENDER
 EMAIL_PASSWORD----USE EMAIL APP PASSWORD ONLY
-npm run dev
+
+### run command
+npm run dev  or node server.js
 
 ### 3. Setup Frontend
 cd ../client
@@ -101,5 +103,7 @@ cp .env.example .env
 
 ### Set:
 REACT_APP_API_URL = your backend URL
+
+### run command
 npm start
 
