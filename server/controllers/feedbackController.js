@@ -19,10 +19,10 @@ exports.submitFeedback = async (req, res) => {
 
     await feedback.save();
 
-    // ✅ Send immediate response
+    
     res.status(201).json({ message: "Feedback submitted successfully!" });
 
-    // ✅ Now send email in background (non-blocking)
+    
     if (!isAnonymous && req.user?.email) {
       const plainText = `Hi ${req.user.name},\n\nWe received your feedback on "${category}".\n\nThank you!\n— Feedback Team`;
 

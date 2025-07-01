@@ -3,28 +3,23 @@ import {
   Container, TextField, Button, Typography, Box, Paper, Alert
 } from '@mui/material';
 import axios from '../api/axios';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login, user } = useAuth();
+  const { login } = useAuth();
 
-  // ✅ Hooks must come first!
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
 
-  // ✅ Redirect after hooks
-  if (user) return <Navigate to="/" />;
-
-  const handleChange = (e) => {
+  const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setError('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-
     if (!form.email || !form.password) {
       return setError('All fields are required');
     }
@@ -32,14 +27,7 @@ const Login = () => {
     try {
       const res = await axios.post('/auth/login', form);
       login(res.data.user, res.data.token);
-
-      // Optional: Role-based redirect
-      if (res.data.user.role === 'admin') {
-        navigate('/admin');
-      } else {
-        navigate('/');
-      }
-
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     }

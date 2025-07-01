@@ -5,15 +5,12 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config();
 const app = express();
-app.use(cors({
-  origin: 'https://collect-fedback.netlify.app', 
-  credentials: true
-}));
-
 app.use(express.json()); 
+app.use(cors());
+
 app.use('/api/auth', require('./routes/auth'));
 const path = require('path');
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // serve static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); 
 app.use('/api/feedback', require('./routes/feedback'));
 
 
@@ -29,8 +26,8 @@ app.get('/', (req, res) => res.send("API is running..."));
 const rateLimit = require('express-rate-limit');
 
 const feedbackLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // limit each IP to 10 feedbacks per window
+  windowMs: 15 * 60 * 1000, 
+  max: 10, 
   message: 'Too many feedbacks submitted. Please try again later.'
 });
 

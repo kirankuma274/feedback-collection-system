@@ -3,8 +3,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.registerUser = async (req, res) => {
+  console.log('Register body:', req.body);
+
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password, role = 'user' } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: "User already exists" });
@@ -15,11 +17,14 @@ exports.registerUser = async (req, res) => {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
+    console.error('Login error:', err);
     res.status(500).json({ message: err.message });
   }
 };
 
 exports.loginUser = async (req, res) => {
+  console.log('Login body:', req.body);
+
   try {
     const { email, password } = req.body;
     
@@ -37,6 +42,10 @@ exports.loginUser = async (req, res) => {
 
     res.status(200).json({ token, user: { name: user.name, role: user.role, email: user.email } });
   } catch (err) {
+        console.error('Login error:', err);
     res.status(500).json({ message: err.message });
   }
 };
+
+
+

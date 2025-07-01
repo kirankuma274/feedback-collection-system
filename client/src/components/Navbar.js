@@ -30,8 +30,8 @@ const Navbar = () => {
                 <Button
                    color="inherit"
                    onClick={() => {
-                   logout();          // clears localStorage + user
-                   navigate('/login'); // redirects to login after logout
+                   logout();          
+                   navigate('/login'); 
                    }}
                    >
                 Logout

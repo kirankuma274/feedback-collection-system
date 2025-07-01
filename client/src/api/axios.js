@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://feedback-system-cz1w.onrender.com/api',
+  baseURL: process.env.REACT_APP_API_URL   
 });
 
 

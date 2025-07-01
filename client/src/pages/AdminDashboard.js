@@ -1,4 +1,4 @@
-// src/pages/AdminDashboard.js
+
 import React, {
   useState,
   useEffect,
@@ -39,20 +39,20 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const uploadsBase =
   (process.env.REACT_APP_API_URL || '')
-    .replace(/\/api\/?$/, '') + '/uploads/'; // → works locally & in prod
+    .replace(/\/api\/?$/, '') + '/uploads/';
 
 const AdminDashboard = () => {
-  /* ---------- Auth ---------- */
+ 
   const { user, authLoading } = useAuth();
 
-  /* ---------- State ---------- */
+  
   const [feedbacks, setFeedbacks] = useState([]);
   const [filters, setFilters] = useState({ category: '', minRating: '' });
   const [summary, setSummary] = useState(null);
   const [dataLoading, setDataLoading] = useState(true);
   const [error, setError] = useState('');
 
-  /* ---------- Fetch data ---------- */
+  
   const fetchData = useCallback(async () => {
     try {
       setDataLoading(true);
@@ -74,14 +74,14 @@ const AdminDashboard = () => {
     }
   }, [filters.category, filters.minRating]);
 
-  /* ---------- Initial / filter‑change load ---------- */
+  
   useEffect(() => {
     if (!authLoading && user?.role === 'admin') {
       fetchData();
     }
   }, [authLoading, user, fetchData]);
 
-  /* ---------- Delete feedback ---------- */
+ 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this feedback?')) return;
     try {
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
     }
   };
 
-  /* ---------- Chart data ---------- */
+  
   const chartData = summary
     ? {
         labels: summary.categoryBreakdown.map((c) => c._id),
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
       }
     : null;
 
-  /* ---------- Early returns ---------- */
+ 
   if (authLoading)
     return (
       <Box sx={{ mt: 10, display: 'flex', justifyContent: 'center' }}>
@@ -134,14 +134,14 @@ const AdminDashboard = () => {
       </Box>
     );
 
-  /* ---------- UI ---------- */
+ 
   return (
     <Container maxWidth="lg" sx={{ mt: 6 }}>
       <Typography variant="h4" gutterBottom>
         Admin Dashboard
       </Typography>
 
-      {/* Export CSV */}
+      
       <Button
         variant="outlined"
         sx={{ mb: 2 }}
@@ -172,7 +172,7 @@ const AdminDashboard = () => {
         </Alert>
       )}
 
-      {/* Filters */}
+      
       <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
         <TextField
           select
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
         />
       </Box>
 
-      {/* Summary cards */}
+      
       {summary && (
         <Grid container spacing={2} sx={{ mb: 4 }}>
           <Grid item xs={12} sm={6}>
@@ -230,14 +230,14 @@ const AdminDashboard = () => {
         </Grid>
       )}
 
-      {/* Pie chart */}
+      
       {chartData && (
         <Box sx={{ maxWidth: 400, mx: 'auto', mb: 4 }}>
           <Pie data={chartData} />
         </Box>
       )}
 
-      {/* Feedback table */}
+      
       <Paper>
         <Table>
           <TableHead>

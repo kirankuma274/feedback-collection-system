@@ -14,7 +14,7 @@ exports.sendFeedbackEmail = async (to, subject, text, html) => {
     to,
     subject,
     text,
-    html  // ✅ HTML content added
+    html  
   };
 
   try {
